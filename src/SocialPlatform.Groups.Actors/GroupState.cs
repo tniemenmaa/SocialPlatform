@@ -1,4 +1,4 @@
-﻿using SocialPlatform.GroupRegistry.Shared;
+﻿using SocialPlatform.Groups.Shared;
 using System;
 using System.Collections.Generic;
 using System.Text;

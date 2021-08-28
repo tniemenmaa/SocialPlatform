@@ -7,7 +7,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.ServiceFabric.Services.Client;
 using Microsoft.ServiceFabric.Services.Remoting.Client;
 using Microsoft.ServiceFabric.Services.Remoting.V2.FabricTransport.Client;
-using SocialPlatform.GroupRegistry.Shared;
+using SocialPlatform.Groups.Shared;
 
 namespace SocialPlatform.Groups.API
 {

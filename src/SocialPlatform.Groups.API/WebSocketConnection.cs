@@ -1,10 +1,10 @@
 ﻿using Microsoft.Extensions.Logging;
 using Microsoft.ServiceFabric.Actors;
 using Microsoft.ServiceFabric.Actors.Client;
-using SocialPlatform.GroupRegistry.Shared;
-using SocialPlatform.GroupRegistry.Shared.Messages;
-using SocialPlatform.GroupRegistry.Shared.Messages.ClientToServer;
-using SocialPlatform.GroupRegistry.Shared.Messages.ServerToClient;
+using SocialPlatform.Groups.Shared;
+using SocialPlatform.Groups.Shared.Messages;
+using SocialPlatform.Groups.Shared.Messages.ClientToServer;
+using SocialPlatform.Groups.Shared.Messages.ServerToClient;
 using SocialPlatform.Groups.Actors.Interfaces;
 using System;
 using System.Net.WebSockets;

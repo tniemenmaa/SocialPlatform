@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
-using SocialPlatform.GroupRegistry.Shared;
-using SocialPlatform.GroupRegistry.Shared.Messages;
-using SocialPlatform.GroupRegistry.Shared.Messages.ClientToServer;
-using SocialPlatform.GroupRegistry.Shared.Messages.ServerToClient;
+using SocialPlatform.Groups.Shared;
+using SocialPlatform.Groups.Shared.Messages;
+using SocialPlatform.Groups.Shared.Messages.ClientToServer;
+using SocialPlatform.Groups.Shared.Messages.ServerToClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;

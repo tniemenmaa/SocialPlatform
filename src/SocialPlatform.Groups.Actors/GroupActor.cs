@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.ServiceFabric.Actors;
 using Microsoft.ServiceFabric.Actors.Runtime;
 using SocialPlatform.Groups.Actors.Interfaces;
-using SocialPlatform.GroupRegistry.Shared;
+using SocialPlatform.Groups.Shared;
 using Microsoft.ServiceFabric.Services.Remoting.Client;
 using Microsoft.ServiceFabric.Services.Remoting.V2.FabricTransport.Client;
 using Microsoft.ServiceFabric.Services.Client;

@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <StartupServices xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Parameters>
+    <Parameter Name="SocialPlatform.Groups.Registry_PartitionCount" Value="1" />
+    <Parameter Name="SocialPlatform.Groups.Registry_MinReplicaSetSize" Value="3" />
+    <Parameter Name="SocialPlatform.Groups.Registry_TargetReplicaSetSize" Value="3" />
     <Parameter Name="SocialPlatform.Groups.API_InstanceCount" Value="1" />
-    <Parameter Name="SocialPlatform.GroupRegistry_PartitionCount" Value="1" />
-    <Parameter Name="SocialPlatform.GroupRegistry_MinReplicaSetSize" Value="3" />
-    <Parameter Name="SocialPlatform.GroupRegistry_TargetReplicaSetSize" Value="3" />
     <Parameter Name="GroupActorService_PartitionCount" Value="1" />
   </Parameters>
 </StartupServices>

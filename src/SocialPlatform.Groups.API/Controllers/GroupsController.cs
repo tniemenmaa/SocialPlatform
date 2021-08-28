@@ -6,7 +6,7 @@ using Microsoft.ServiceFabric.Services.Client;
 using Microsoft.ServiceFabric.Services.Remoting.Client;
 using Microsoft.ServiceFabric.Services.Remoting.V2.FabricTransport.Client;
 using Microsoft.ServiceFabric.Actors;
-using SocialPlatform.GroupRegistry.Shared;
+using SocialPlatform.Groups.Shared;
 using SocialPlatform.Groups.Actors.Interfaces;
 using System;
 using System.Collections.Generic;

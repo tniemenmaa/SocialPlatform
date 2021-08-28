@@ -1,5 +1,5 @@
 ﻿using Microsoft.ServiceFabric.Actors;
-using SocialPlatform.GroupRegistry.Shared;
+using SocialPlatform.Groups.Shared;
 using System;
 using System.Threading.Tasks;
 

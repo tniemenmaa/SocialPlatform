@@ -36,11 +36,11 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SocialPlatform.GroupRegistry\SocialPlatform.GroupRegistry.csproj" />
     <ProjectReference Include="..\SocialPlatform.Groups.Actors\SocialPlatform.Groups.Actors.csproj" />
     <ProjectReference Include="..\SocialPlatform.Groups.API\SocialPlatform.Groups.API.csproj">
       <ServiceLaunchUrl>http://localhost:{ServicePort}/healthcheck</ServiceLaunchUrl>
     </ProjectReference>
+    <ProjectReference Include="..\SocialPlatform.Groups.Registry\SocialPlatform.Groups.Registry.csproj" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
   <PropertyGroup>
