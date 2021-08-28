@@ -45,6 +45,7 @@ namespace SocialPlatform.Groups.API
                 }
                 else
                 {
+                    _logger.LogInformation("Received invalid websocket request.");
                     context.Response.StatusCode = StatusCodes.Status400BadRequest;
                     await context.Response.WriteAsync("Expected websocket request");
                 }
@@ -57,7 +58,6 @@ namespace SocialPlatform.Groups.API
 
         private RequestDelegate _next;
         private IGroupRegistryService _groupRegistryService;
-        private int _outgoingSequenceNumber = 0;
         private ILogger<WebSocketMiddleware> _logger;
 
     }

@@ -45,9 +45,10 @@ namespace SocialPlatform.Groups.Registry
         /// This method executes when this replica of your service becomes primary and has write status.
         /// </summary>
         /// <param name="cancellationToken">Canceled when Service Fabric needs to shut down this service replica.</param>
-        protected override async Task RunAsync(CancellationToken cancellationToken)
+        protected override Task RunAsync(CancellationToken cancellationToken)
         {
             _registry = new ReliableStateGroupRegistry(this.StateManager, _loggerFactory.CreateLogger<ReliableStateGroupRegistry>());
+            return Task.CompletedTask;
         }
 
         public async Task<Group[]> GetGroups()

@@ -44,7 +44,7 @@ namespace SocialPlatform.Groups.ConsoleClient
             Console.WriteLine("What is your name?");
             string playerName = Console.ReadLine();
 
-            Console.WriteLine($"Hello {playerName}, you have been assigned id {_playerId}");
+            Console.WriteLine($"Hello {playerName}! Below you can see a summary on how to use this application.");
             Task receiveAsync = Task.Run( () => ReceiveAsync(socket, CancellationToken.None));
             PrintHelp();
 
@@ -53,10 +53,10 @@ namespace SocialPlatform.Groups.ConsoleClient
 
             while (true)
             {
-                string[] input = Console.ReadLine().Trim().ToLower().Split(" ", 2);
+                string[] input = Console.ReadLine().Trim().Split(" ", 2);
 
                 // If player inputs /exit then 
-                switch (input[0])
+                switch (input[0].ToLower())
                 {
                     case "/exit":
                         {
@@ -169,7 +169,8 @@ namespace SocialPlatform.Groups.ConsoleClient
                                     Console.WriteLine("No groups found.");
                                     break;
                                 }
-                                
+
+                                Console.WriteLine("Group ID | Group Name | Players");
                                 foreach (var group in response.Groups)
                                 {
                                     Console.WriteLine($"{group.Id} - {group.Name} - {group.Members.Length}/20");
@@ -260,7 +261,6 @@ namespace SocialPlatform.Groups.ConsoleClient
         }
 
         private Guid _playerId;
-        private int _outgoingSequenceNumber = 0;
         private Group _currentGroup = null;
     }
 }
