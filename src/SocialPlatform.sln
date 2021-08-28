@@ -7,8 +7,6 @@ Project("{A07B5EB6-E848-4116-A8D0-A826331D98C6}") = "SocialPlatform", "SocialPla
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SocialPlatform.Groups.API", "SocialPlatform.Groups.API\SocialPlatform.Groups.API.csproj", "{A23B45A9-D4ED-4C43-BE62-E0A6A0C943E6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SocialPlatform.Groups.Client", "SocialPlatform.Groups.Client\SocialPlatform.Groups.Client.csproj", "{DD19F29A-0AC9-4C7C-893D-D329212D247A}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SocialPlatform.Groups.Actors", "SocialPlatform.Groups.Actors\SocialPlatform.Groups.Actors.csproj", "{DC17ECE4-56BE-4E82-A271-68F57169464A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SocialPlatform.Groups.Actors.Interfaces", "SocialPlatform.Groups.Actors.Interfaces\SocialPlatform.Groups.Actors.Interfaces.csproj", "{C1FF35E0-6667-4DAE-9FC7-47A10290A996}"
@@ -16,6 +14,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SocialPlatform.Groups.Shared", "SocialPlatform.Groups.Shared\SocialPlatform.Groups.Shared.csproj", "{851B9D23-807F-487D-A4BD-2121D1B905D0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocialPlatform.Groups.Registry", "SocialPlatform.Groups.Registry\SocialPlatform.Groups.Registry.csproj", "{3FB2DD0C-C2CB-4DB6-B572-05E8C6473E39}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SocialPlatform.Groups.ConsoleClient", "SocialPlatform.Groups.ConsoleClient\SocialPlatform.Groups.ConsoleClient.csproj", "{140B022E-229B-4AE5-81DE-887525B3914E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,14 +41,6 @@ Global
 		{A23B45A9-D4ED-4C43-BE62-E0A6A0C943E6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A23B45A9-D4ED-4C43-BE62-E0A6A0C943E6}.Release|x64.ActiveCfg = Release|Any CPU
 		{A23B45A9-D4ED-4C43-BE62-E0A6A0C943E6}.Release|x64.Build.0 = Release|Any CPU
-		{DD19F29A-0AC9-4C7C-893D-D329212D247A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DD19F29A-0AC9-4C7C-893D-D329212D247A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DD19F29A-0AC9-4C7C-893D-D329212D247A}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{DD19F29A-0AC9-4C7C-893D-D329212D247A}.Debug|x64.Build.0 = Debug|Any CPU
-		{DD19F29A-0AC9-4C7C-893D-D329212D247A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DD19F29A-0AC9-4C7C-893D-D329212D247A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DD19F29A-0AC9-4C7C-893D-D329212D247A}.Release|x64.ActiveCfg = Release|Any CPU
-		{DD19F29A-0AC9-4C7C-893D-D329212D247A}.Release|x64.Build.0 = Release|Any CPU
 		{DC17ECE4-56BE-4E82-A271-68F57169464A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DC17ECE4-56BE-4E82-A271-68F57169464A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DC17ECE4-56BE-4E82-A271-68F57169464A}.Debug|x64.ActiveCfg = Debug|Any CPU
@@ -81,6 +73,14 @@ Global
 		{3FB2DD0C-C2CB-4DB6-B572-05E8C6473E39}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3FB2DD0C-C2CB-4DB6-B572-05E8C6473E39}.Release|x64.ActiveCfg = Release|Any CPU
 		{3FB2DD0C-C2CB-4DB6-B572-05E8C6473E39}.Release|x64.Build.0 = Release|Any CPU
+		{140B022E-229B-4AE5-81DE-887525B3914E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{140B022E-229B-4AE5-81DE-887525B3914E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{140B022E-229B-4AE5-81DE-887525B3914E}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{140B022E-229B-4AE5-81DE-887525B3914E}.Debug|x64.Build.0 = Debug|Any CPU
+		{140B022E-229B-4AE5-81DE-887525B3914E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{140B022E-229B-4AE5-81DE-887525B3914E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{140B022E-229B-4AE5-81DE-887525B3914E}.Release|x64.ActiveCfg = Release|Any CPU
+		{140B022E-229B-4AE5-81DE-887525B3914E}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
