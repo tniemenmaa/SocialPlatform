@@ -9,10 +9,17 @@ namespace SocialPlatform.Groups.Shared.Messages
 {
     public static class NetworkMessageSerializer
     {
+        /// <summary>
+        /// Serialize network message into byte array.
+        /// </summary>
         public static byte[] Serialize(INetworkMessage message)
         {
             return message.Serialize();
         }
+
+        /// <summary>
+        /// Deserialize byte array into network message.
+        /// </summary>
         public static INetworkMessage Deserialize( byte messageType, byte[] buffer, int offset, int length )
         {
             switch (messageType)

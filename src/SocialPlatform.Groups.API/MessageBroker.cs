@@ -5,18 +5,22 @@ using SocialPlatform.Groups.Shared;
 using SocialPlatform.Groups.Shared.Messages;
 using SocialPlatform.Groups.Shared.Messages.ClientToServer;
 using SocialPlatform.Groups.Shared.Messages.ServerToClient;
-using SocialPlatform.Groups.Actors.Interfaces;
 using System;
 using System.Net.WebSockets;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Threading.Tasks.Dataflow;
+using SocialPlatform.Groups.Shared.Models;
+using System.Collections.Generic;
 
 namespace SocialPlatform.Groups.API
 {
-    public class WebSocketConnection : IGroupEvents
+    /// <summary>
+    /// Handles websocket connection and routing messages.
+    /// </summary>
+    public class MessageBroker : IGroupEvents
     {
-        public WebSocketConnection(Guid playerId, IGroupRegistryService groupRegistryService, WebSocket socket, ILogger<WebSocketConnection> logger )
+        public MessageBroker(Guid playerId, IGroupRegistryService groupRegistryService, WebSocket socket, ILogger<MessageBroker> logger )
         {
             _playerId = playerId;
             _groupRegistryService = groupRegistryService;
@@ -103,7 +107,8 @@ namespace SocialPlatform.Groups.API
                     break;
 
                 default:
-                    throw new ArgumentException($"Invalid message type {message.MessageType}.");
+                    _logger.LogError($"Unknown message type ({message.MessageType}) received.");
+                    break;
 
             }
         }
@@ -114,15 +119,22 @@ namespace SocialPlatform.Groups.API
             {
                 var buffer = new byte[4096];
                 WebSocketReceiveResult result;
+                List<byte> messageBuffer = new List<byte>();
 
                 // Keep listening to the socket until connection is closed
                 do
                 {
+                    /// <remark> 
+                    /// This is very naive implementation that does not handle
+                    /// messages that are longer then 4096 bytes.
+                    /// In real world application we should read until we encounter
+                    /// EndOfMessage and possibly include the size of the message in the payload for optimization 
+                    /// </remark>
                     result = await _socket.ReceiveAsync(new ArraySegment<byte>(buffer), ct);
 
                     if (result.EndOfMessage)
                     {
-                        var (message, sequenceNumber) = NetworkMessageReader.Read(buffer, 0, result.Count);
+                        var message = NetworkMessageReader.Read(buffer, 0, result.Count);
 
                         await HandleNetworkMessage(message);
                     }
@@ -151,6 +163,21 @@ namespace SocialPlatform.Groups.API
             await proxy.UnsubscribeAsync<IGroupEvents>(this);
         }
 
+        private async Task SendMessageAsync(INetworkMessage message)
+        {
+            try
+            {
+                var data = NetworkMessageWriter.Write(message);
+                await _socket.SendAsync(new ArraySegment<byte>(data), WebSocketMessageType.Binary, true, CancellationToken.None);
+            }
+            catch (Exception e)
+            {
+                ServiceEventSource.Current.Message($"Error sending message {e.Message}");
+            }
+        }
+
+#region IGroupEvents
+
         public void GroupMessageReceived(Guid groupId, GroupMessage message)
         {
             ServiceEventSource.Current.Message($"Group message received by {_playerId}");
@@ -162,25 +189,12 @@ namespace SocialPlatform.Groups.API
             _sendQueue.Post(new GroupUpdatedMessage(group));
         }
 
-        private async Task SendMessageAsync(INetworkMessage message)
-        {
-            try
-            {
-                var data = NetworkMessageWriter.Write(message, _outgoingSequenceNumber++);
-                await _socket.SendAsync(new ArraySegment<byte>(data), WebSocketMessageType.Binary, true, CancellationToken.None);
-            }
-            catch (Exception e)
-            {
-                ServiceEventSource.Current.Message($"Error sending message {e.Message}");
-            }
-        }
-
-
+#endregion
+        
         private ActionBlock<INetworkMessage> _sendQueue;
         private WebSocket _socket;
         private Guid _playerId;
         private IGroupRegistryService _groupRegistryService;
-        private int _outgoingSequenceNumber = 0;
-        private ILogger<WebSocketConnection> _logger;
+        private ILogger<MessageBroker> _logger;
     }
 }

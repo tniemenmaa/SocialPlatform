@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace SocialPlatform.Groups.Shared
+namespace SocialPlatform.Groups.Shared.Models
 {
     [MessagePackObject]
     public class GroupMember
@@ -13,7 +13,6 @@ namespace SocialPlatform.Groups.Shared
         [Key(1)]
         public string Name { get; set; }
 
-        // Default constructor required by reliable collections
         public GroupMember() {}
 
         public GroupMember(Guid playerId, string name)

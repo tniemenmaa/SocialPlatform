@@ -6,14 +6,16 @@ using System.Text;
 namespace SocialPlatform.Groups.Shared.Messages
 {
     public static class NetworkMessageWriter
-    {
-        public static byte[] Write( INetworkMessage message, int sequenceNumber )
+    {        
+        /// <summary>
+        /// Helper function for writing formmatted binary message from INetworkMessage.
+        /// </summary>
+        public static byte[] Write(INetworkMessage message)
         {
             using (MemoryStream ms = new MemoryStream()) {
                 using (BinaryWriter writer = new BinaryWriter(ms))
                 {
                     writer.Write(message.MessageType);
-                    writer.Write(sequenceNumber);
                     writer.Write(message.Serialize());
                 }
                 return ms.ToArray();

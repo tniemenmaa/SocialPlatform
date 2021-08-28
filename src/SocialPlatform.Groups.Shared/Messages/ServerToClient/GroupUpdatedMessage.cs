@@ -1,7 +1,5 @@
 ﻿using MessagePack;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using SocialPlatform.Groups.Shared.Models;
 
 namespace SocialPlatform.Groups.Shared.Messages.ServerToClient
 {

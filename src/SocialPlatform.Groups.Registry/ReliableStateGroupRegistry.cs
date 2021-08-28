@@ -2,6 +2,7 @@
 using Microsoft.ServiceFabric.Data;
 using Microsoft.ServiceFabric.Data.Collections;
 using SocialPlatform.Groups.Shared;
+using SocialPlatform.Groups.Shared.Models;
 using System;
 using System.Collections.Generic;
 using System.Threading;
@@ -9,10 +10,10 @@ using System.Threading.Tasks;
 
 namespace ServiceFabricPlatform.GroupRegistry
 {
-    /// <summary>
+    /// <remarks>
     /// Group registry build on top of Reliable Containers. 
     /// In real-world application this should be replaced with a database backed registry.
-    /// </summary>
+    /// </remarks>
     public class ReliableStateGroupRegistry : IGroupRegistry
     {
         public ReliableStateGroupRegistry(IReliableStateManager stateManager, ILogger<ReliableStateGroupRegistry> logger)

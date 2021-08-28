@@ -9,11 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SocialPlatform.Groups.API",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SocialPlatform.Groups.Actors", "SocialPlatform.Groups.Actors\SocialPlatform.Groups.Actors.csproj", "{DC17ECE4-56BE-4E82-A271-68F57169464A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SocialPlatform.Groups.Actors.Interfaces", "SocialPlatform.Groups.Actors.Interfaces\SocialPlatform.Groups.Actors.Interfaces.csproj", "{C1FF35E0-6667-4DAE-9FC7-47A10290A996}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SocialPlatform.Groups.Shared", "SocialPlatform.Groups.Shared\SocialPlatform.Groups.Shared.csproj", "{851B9D23-807F-487D-A4BD-2121D1B905D0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocialPlatform.Groups.Registry", "SocialPlatform.Groups.Registry\SocialPlatform.Groups.Registry.csproj", "{3FB2DD0C-C2CB-4DB6-B572-05E8C6473E39}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SocialPlatform.Groups.Registry", "SocialPlatform.Groups.Registry\SocialPlatform.Groups.Registry.csproj", "{3FB2DD0C-C2CB-4DB6-B572-05E8C6473E39}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SocialPlatform.Groups.ConsoleClient", "SocialPlatform.Groups.ConsoleClient\SocialPlatform.Groups.ConsoleClient.csproj", "{140B022E-229B-4AE5-81DE-887525B3914E}"
 EndProject
@@ -49,14 +47,6 @@ Global
 		{DC17ECE4-56BE-4E82-A271-68F57169464A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DC17ECE4-56BE-4E82-A271-68F57169464A}.Release|x64.ActiveCfg = Release|Any CPU
 		{DC17ECE4-56BE-4E82-A271-68F57169464A}.Release|x64.Build.0 = Release|Any CPU
-		{C1FF35E0-6667-4DAE-9FC7-47A10290A996}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C1FF35E0-6667-4DAE-9FC7-47A10290A996}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C1FF35E0-6667-4DAE-9FC7-47A10290A996}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{C1FF35E0-6667-4DAE-9FC7-47A10290A996}.Debug|x64.Build.0 = Debug|Any CPU
-		{C1FF35E0-6667-4DAE-9FC7-47A10290A996}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C1FF35E0-6667-4DAE-9FC7-47A10290A996}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C1FF35E0-6667-4DAE-9FC7-47A10290A996}.Release|x64.ActiveCfg = Release|Any CPU
-		{C1FF35E0-6667-4DAE-9FC7-47A10290A996}.Release|x64.Build.0 = Release|Any CPU
 		{851B9D23-807F-487D-A4BD-2121D1B905D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{851B9D23-807F-487D-A4BD-2121D1B905D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{851B9D23-807F-487D-A4BD-2121D1B905D0}.Debug|x64.ActiveCfg = Debug|Any CPU

@@ -16,7 +16,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SocialPlatform.Groups.Shared\SocialPlatform.Groups.Shared.csproj" />
-    <ProjectReference Include="..\SocialPlatform.Groups.Actors.Interfaces\SocialPlatform.Groups.Actors.Interfaces.csproj" />
   </ItemGroup>
 
 

@@ -10,6 +10,7 @@ using Microsoft.ServiceFabric.Services.Remoting.V2.FabricTransport.Runtime;
 using Microsoft.ServiceFabric.Services.Runtime;
 using ServiceFabricPlatform.GroupRegistry;
 using SocialPlatform.Groups.Shared;
+using SocialPlatform.Groups.Shared.Models;
 
 namespace SocialPlatform.Groups.Registry
 {

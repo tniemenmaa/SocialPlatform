@@ -32,13 +32,16 @@ namespace SocialPlatform.Groups.API
                 if (context.WebSockets.IsWebSocketRequest)
                 {
                     var socket = await context.WebSockets.AcceptWebSocketAsync();
-                    
-                    // In real world this would most likely be some token that was received from the authentication endpoint.
-                    // That we could verify against the authenticaiton endpoint to get the identity of the player.
+
+                    /// <remarks>
+                    /// In real world this would most likely be some token that was received from the authentication endpoint.
+                    /// That we could verify against the authenticaiton endpoint to get the identity of the player.
+                    /// </remarks>
                     var playerId = context.Request.Headers["playerId"][0];
 
-                    var connection = new WebSocketConnection(Guid.Parse(playerId), _groupRegistryService, socket, null);
-                    await connection.RunAsync(CancellationToken.None);
+                    // Create and run the message broker for routing messages between the client and different services.
+                    var messageBroker = new MessageBroker(Guid.Parse(playerId), _groupRegistryService, socket, null);
+                    await messageBroker.RunAsync(CancellationToken.None);
                 }
                 else
                 {

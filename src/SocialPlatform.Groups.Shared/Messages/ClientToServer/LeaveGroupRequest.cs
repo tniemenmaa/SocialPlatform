@@ -19,7 +19,9 @@ namespace SocialPlatform.Groups.Shared.Messages.ClientToServer
         [Key(0)]
         public Guid GroupId { get; set; }
 
-        // In real world this would not be passed as property
+        /// <remarks>
+        /// In real world this would not be passed as property but resolved on server.
+        /// </remarks>
         [Key(1)]
         public Guid PlayerId { get; set; }
 

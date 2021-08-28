@@ -31,7 +31,7 @@ namespace SocialPlatform.Groups.API
             var groupService = proxyFactory.CreateServiceProxy<IGroupRegistryService>(Constants.GroupRegistryUri, new ServicePartitionKey(0));
             services.AddSingleton<IGroupRegistryService>(groupService);
 
-            services.AddScoped<WebSocketConnection>();
+            services.AddScoped<MessageBroker>();
     
             // In production this should be replaced with proper logging
             services.AddLogging(options =>

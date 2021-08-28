@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 using System.Text;
 
-namespace SocialPlatform.Groups.Shared
+namespace SocialPlatform.Groups.Shared.Models
 {
     /// <summary>
     /// Base class for chat messages for groups.
@@ -29,7 +29,9 @@ namespace SocialPlatform.Groups.Shared
         [Key(1)]
         public int Ordinal { get; set; }
 
-        // In real world we would have more sophisticated system for displaying messages.
+        /// <remarks>
+        /// In real world we would have more sophisticated system for displaying messages.
+        /// </remarks>
         public abstract string ToConsoleString(Group group);
     }
 }

@@ -4,11 +4,15 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Text;
 
-namespace SocialPlatform.Groups.Shared
+namespace SocialPlatform.Groups.Shared.Models
 {
     /// <summary>
     /// Message type for plain text messages by players.
     /// </summary>
+    /// <remarks>
+    /// In real world we might have other types of messages as well.
+    /// for example system messages or custom payload messages.
+    /// </remarks>
     [MessagePackObject]
     public class PlayerGroupMessage : GroupMessage
     {

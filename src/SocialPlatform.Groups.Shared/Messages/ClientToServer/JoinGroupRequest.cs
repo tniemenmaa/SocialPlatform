@@ -1,7 +1,6 @@
 ﻿using MessagePack;
+using SocialPlatform.Groups.Shared.Models;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace SocialPlatform.Groups.Shared.Messages.ClientToServer
 {
@@ -19,7 +18,9 @@ namespace SocialPlatform.Groups.Shared.Messages.ClientToServer
         [Key(0)]
         public Guid GroupId { get; set; }
 
-        // In real world this would be resolved on the server.
+        /// <remarks>
+        /// In real world this would be resolved on the server and not passed as a property.
+        /// </remarks>
         [Key(1)]
         public GroupMember Player { get; set; }
 

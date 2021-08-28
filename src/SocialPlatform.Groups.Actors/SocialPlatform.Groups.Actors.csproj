@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SocialPlatform.Groups.Actors.Interfaces\SocialPlatform.Groups.Actors.Interfaces.csproj" />
+    <ProjectReference Include="..\SocialPlatform.Groups.Shared\SocialPlatform.Groups.Shared.csproj" />
   </ItemGroup>
 
 </Project>

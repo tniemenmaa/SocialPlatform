@@ -1,7 +1,5 @@
-﻿using SocialPlatform.Groups.Shared;
-using System;
+﻿using SocialPlatform.Groups.Shared.Models;
 using System.Collections.Generic;
-using System.Text;
 
 namespace SocialPlatform.Groups.Actors
 {

@@ -2,6 +2,7 @@
 using SocialPlatform.Groups.Shared.Messages;
 using SocialPlatform.Groups.Shared.Messages.ClientToServer;
 using SocialPlatform.Groups.Shared.Messages.ServerToClient;
+using SocialPlatform.Groups.Shared.Models;
 using System;
 using System.Net.WebSockets;
 using System.Threading;
@@ -65,7 +66,7 @@ namespace SocialPlatform.Groups.ConsoleClient
                     case "/list":
                         {
                             message = new GetGroupsRequest();
-                            data = NetworkMessageWriter.Write(message, _outgoingSequenceNumber++);
+                            data = NetworkMessageWriter.Write(message);
                             await socket.SendAsync(new ArraySegment<byte>(data), WebSocketMessageType.Binary, true, CancellationToken.None);
                             break;
                         }
@@ -77,7 +78,7 @@ namespace SocialPlatform.Groups.ConsoleClient
                                 break;
                             }
                             message = new CreateGroupRequest(input[1], new GroupMember(_playerId, playerName));
-                            data = NetworkMessageWriter.Write(message, _outgoingSequenceNumber++);
+                            data = NetworkMessageWriter.Write(message);
                             await socket.SendAsync(new ArraySegment<byte>(data), WebSocketMessageType.Binary, true, CancellationToken.None);
                             break;
                         }
@@ -97,7 +98,7 @@ namespace SocialPlatform.Groups.ConsoleClient
                             }
 
                             message = new JoinGroupRequest(groupId, new GroupMember(_playerId, playerName));
-                            data = NetworkMessageWriter.Write(message, _outgoingSequenceNumber++);
+                            data = NetworkMessageWriter.Write(message);
                             await socket.SendAsync(new ArraySegment<byte>(data), WebSocketMessageType.Binary, true, CancellationToken.None);
                             break;
                         }
@@ -110,7 +111,7 @@ namespace SocialPlatform.Groups.ConsoleClient
                             }
 
                             message = new LeaveGroupRequest(_currentGroup.Id, _playerId);
-                            data = NetworkMessageWriter.Write(message, _outgoingSequenceNumber++);
+                            data = NetworkMessageWriter.Write(message);
                             await socket.SendAsync(new ArraySegment<byte>(data), WebSocketMessageType.Binary, true, CancellationToken.None);
                             break;
                         }
@@ -131,7 +132,7 @@ namespace SocialPlatform.Groups.ConsoleClient
                             
 
                             message = new SendGroupMessage(_currentGroup.Id, new PlayerGroupMessage(_playerId, input[1]));
-                            data = NetworkMessageWriter.Write(message, _outgoingSequenceNumber++);
+                            data = NetworkMessageWriter.Write(message);
                             await socket.SendAsync(new ArraySegment<byte>(data), WebSocketMessageType.Binary, true, CancellationToken.None);
                             break;
                         }
@@ -153,7 +154,8 @@ namespace SocialPlatform.Groups.ConsoleClient
                 while (!socket.CloseStatus.HasValue)
                 {
                     var result = await socket.ReceiveAsync(new ArraySegment<byte>(buffer), ct);
-                    var (networkMessage, sequenceNumber) = NetworkMessageReader.Read(buffer, 0, result.Count);
+                    
+                    var networkMessage = NetworkMessageReader.Read(buffer, 0, result.Count);
 
                     if (networkMessage == null) continue;
 
@@ -162,10 +164,17 @@ namespace SocialPlatform.Groups.ConsoleClient
                         case ServerToClientMessageTypes.GetGroupsResponse:
                             {
                                 var response = (GetGroupsResponse)networkMessage;
+                                if (response.Groups == null || response.Groups.Length == 0)
+                                {
+                                    Console.WriteLine("No groups found.");
+                                    break;
+                                }
+                                
                                 foreach (var group in response.Groups)
                                 {
                                     Console.WriteLine($"{group.Id} - {group.Name} - {group.Members.Length}/20");
                                 }
+
                                 break;
                             }
                         case ServerToClientMessageTypes.CreateGroupResponse:

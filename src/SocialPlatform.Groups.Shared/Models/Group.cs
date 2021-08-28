@@ -2,7 +2,7 @@
 using System;
 using System.Runtime.Serialization;
 
-namespace SocialPlatform.Groups.Shared
+namespace SocialPlatform.Groups.Shared.Models
 {
     [DataContract]
     [MessagePackObject]

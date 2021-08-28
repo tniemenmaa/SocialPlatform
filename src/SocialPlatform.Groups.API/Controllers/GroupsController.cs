@@ -1,17 +1,13 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.ServiceFabric.Actors.Client;
-using Microsoft.ServiceFabric.Services.Client;
-using Microsoft.ServiceFabric.Services.Remoting.Client;
-using Microsoft.ServiceFabric.Services.Remoting.V2.FabricTransport.Client;
 using Microsoft.ServiceFabric.Actors;
 using SocialPlatform.Groups.Shared;
-using SocialPlatform.Groups.Actors.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using SocialPlatform.Groups.Shared.Models;
 
 namespace SocialPlatform.Groups.API.Controllers
 {
@@ -35,8 +31,10 @@ namespace SocialPlatform.Groups.API.Controllers
         [HttpGet]
         public async Task<Group> GetGroup(Guid id)
         {
-            // In real world this would be done within database query engine
-            // added here for api completeness
+            ///<remarks>
+            /// In real world this would be done within database query engine
+            /// added here for api completeness
+            /// </remarks>
             return (await _groupService.GetGroups()).FirstOrDefault(x => x.Id == id);
         }
 
