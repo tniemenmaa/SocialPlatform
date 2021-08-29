@@ -2,12 +2,12 @@
 Demo project for chat group feature build on top of Service Fabric. 
 
 ## Description
-This demo project implements simple social group service that allows users to list, create, join and leave groups. Once inside a group, user can send messages to the group which stores them in ReliableDictionary and sends the messages to all other group members who are online. In production a proper queryable database should be used for storing the groups and messages to allow queries. Currently all the messages are stored in the actors memory and returned when player requests messages. This will cause issues once the messages amount grows and instead of returning all messages only a subset of messages should be returned and support for pagination and filtering should be added.
+This demo project implements simple social group service that allows users to list, create, join and leave groups. Once inside a group, user can send messages to the group which stores them and sends the messages to all other group members who are online. In production a proper queryable database should be used for storing the groups and messages. Currently all the messages are stored in the actors state and returned when player requests messages. This will cause issues once the messages amount grows and instead of returning all messages only a subset of messages should be returned and support for pagination and filtering should be added.
 
 The main components of the solution are
-- **Group API** handles the WebSocket connections and message routing to other services.
-- **Group Registry** stores and serves clients endpoint for fetching list all groups.
-- **Group Actor** hosts the actual actor based group implementation and also offers actor event based notification system for API to receive relevant messages.
+- **Group API** Statless ASP.NET Core service that handles the WebSocket connections and message routing to other services.
+- **Group Registry** Stateful service that offers endpoints for group discovery.  
+- **Group Actor** Stateful actor service that hosts the actual actor based group implementation and also offers actor event based notification system for API to receive relevant messages.
 
 Also the solution includes a very simple console client for testing the solution.
 
@@ -20,7 +20,7 @@ Communication between client and and API is done with TCP over WebSockets. All m
 
 ### Future development
 - Database backing for group registry service and group actors.
-- Support NetworkMessages larger then 4096 by copying the buffer into stream when dealing with large messages.
+- Support NetworkMessages larger then 4096 by copying the socket buffer into a memory stream when dealing with large messages.
 - Use tokens for user authentication. Current implementation trusts the client and is very vulnerable for user impersonation attacks.
 - Standardize logging between different services.
 - Support for SSL.
