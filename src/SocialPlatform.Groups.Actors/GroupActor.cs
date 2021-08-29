@@ -161,6 +161,9 @@ namespace SocialPlatform.Groups.Actors
                     Members = _state.Members.ToArray()
                 };
                 ev.GroupUpdated(group);
+
+                // Update registry
+                await _groupRegistry.AddOrUpdateGroup(group);
             }
         }
 
