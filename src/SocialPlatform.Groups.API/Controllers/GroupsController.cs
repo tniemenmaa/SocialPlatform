@@ -28,7 +28,7 @@ namespace SocialPlatform.Groups.API.Controllers
             return (await _groupService.GetGroups());
         }
 
-        [HttpGet]
+        [HttpGet("{id}")]
         public async Task<Group> GetGroup(Guid id)
         {
             ///<remarks>
@@ -38,7 +38,7 @@ namespace SocialPlatform.Groups.API.Controllers
             return (await _groupService.GetGroups()).FirstOrDefault(x => x.Id == id);
         }
 
-        [HttpGet]
+        [HttpGet("{id}/messages")]
         public async Task<IEnumerable<GroupMessage>> GetGroupMessages(Guid id)
         {
             IGroupActor actor = ActorProxy.Create<IGroupActor>(new ActorId(id), Constants.GroupActorUri);
